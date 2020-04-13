@@ -70,7 +70,7 @@ export default {
     play(song) {
       this.playIdChange(song.id);
       this.playSongChange(song.name)
-      // this.$emit("getSongName", song.name);
+      this.$emit("getSongName", song.name);
     },
     cduration
   },

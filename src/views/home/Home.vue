@@ -1,8 +1,10 @@
 <template>
  <el-container class="home-container">
   <el-header >
-    <div class="my-header">
+    <div class="my-header">     
+      <div class="playing_con">
               <h3 class="playing_song"> {{$store.state.songName?'正在播放: '+$store.state.songName:''}}</h3>
+      </div>
        <el-input @change="search" v-model="searchName" placeholder="搜索歌曲"></el-input>
     <!-- <el-button type="" @click="search">hah</el-button> -->
     </div>
@@ -83,13 +85,33 @@ export default {
 </script>
 
 <style scoped>
-
+.playing_con{
+  position: relative;
+  width: 200px;
+  height: 60px;
+  overflow: hidden;
+}
 .playing_song{
   position: absolute;
+  width: 200px;
   margin: 0;
   padding: 0;
   top: 0px;
-  left: 5px;
+  left: -200px;
+  /* text-indent: -5em; */
+  animation: textmove 10s linear infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@keyframes textmove{ 
+  0%{
+    /* text-indent: 0; */
+  }
+  100%{
+    /* text-indent: 200px; */
+    left: 200px;
+  }
 }
 .el-aside{
   position: fixed;

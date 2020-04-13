@@ -1,6 +1,14 @@
 <template>
   <div>
-      {{$route.params.id}}
+      <div class="header">
+          <div class="blur-pic">
+              <img :src="artist.img1v1Url" alt="">
+          </div>
+          <div>
+              <div>{{artist.name}}</div>
+              <div class="info">{{artist.briefDesc}}</div>
+          </div>
+      </div>
         <song-list :songs="hotSongs"></song-list>
         
   </div>
@@ -52,6 +60,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

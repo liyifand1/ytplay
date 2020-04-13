@@ -15,7 +15,7 @@
             </div>
           <div>{{album.company}}</div>
           <div >
-            <p class="al-info">
+            <p class="info">
 
               {{album.description}}
             </p>
@@ -80,30 +80,5 @@ export default {
 </script>
 
 <style scoped>
-.header{
-  height: 260px;
-  margin-bottom: 10px;
-  margin-left: 5px;
-}
-.blur-pic{
-  float: left;
-  width: 250px;
-  height: 250px;
-  overflow: hidden;
-
-}
-.blur-pic img{
-  display: block;
-  width: 250px;
-  height: 250px;
-  transition: all 1s;
-}
-.blur-pic img:hover{
-  transform: scale(1.1);
-}
-.al-info{
-  height: 163px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+  
 </style>

@@ -1,25 +1,15 @@
 <template>
   <div>
+    <div class="header">
+      <div class="blur-pic">
+        <img :src="playList.coverImgUrl" alt="">
+      </div>
+      <div>
+              <div>{{playList.name}}</div>
+              <div class="info">{{playList.description}}</div>
+      </div>
+    </div>
     <song-list :songs="songs">
-      <!-- <template v-slot:artists="scopes">
-          <span
-            v-for="item in scopes.scope.row.ar"
-            :key="item.id"
-            class="c-pointer"
-          >
-            {{ item.name }}
-          </span>
-      </template>
-      <template v-slot:album="scopes"> 
-          <div class="c-pointer">
-          {{ scopes.scope.row.al.name }}
-        </div>
-      </template>
-      <template v-slot:duration="scopes">
-         <div>
-          {{ cduration(scopes.scope.row.duration) }}
-        </div>
-      </template> -->
     </song-list>
   </div>
 </template>
@@ -29,6 +19,7 @@ import { mapMutations, mapActions } from "vuex";
 import { convertKey } from "../../utils/utils";
 import SongList from "../songList/SongList.vue";
 import { cduration } from "@/utils/utils";
+import { log } from 'util';
 
 export default {
   data() {
@@ -36,7 +27,8 @@ export default {
       songListId: "",
       songs: [],
       activeName: "first",
-      oldSongs:[]
+      oldSongs:[],
+      playList:{}
     };
   },
   components: {
@@ -64,6 +56,9 @@ export default {
           id: this.songListId
         }
       });
+      this.playList = data.playlist;
+      console.log(this.playList);
+      
       // console.log(data.playlist.tracks);
       this.oldSongs = data.playlist.tracks;
       this.songs =convertKey(data.playlist.tracks,{'ar':'artists','al':'album','dt':'duration'});
