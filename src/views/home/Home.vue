@@ -2,6 +2,7 @@
  <el-container class="home-container">
   <el-header >
     <div class="my-header">
+              <h3 class="playing_song"> {{$store.state.songName?'正在播放: '+$store.state.songName:''}}</h3>
        <el-input @change="search" v-model="searchName" placeholder="搜索歌曲"></el-input>
     <!-- <el-button type="" @click="search">hah</el-button> -->
     </div>
@@ -42,7 +43,7 @@ export default {
       shuju: "",
       songs: [],
       songInfo: {},
-      searchName:'Flet',
+      searchName:'',
     };
   },
 
@@ -82,6 +83,14 @@ export default {
 </script>
 
 <style scoped>
+
+.playing_song{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0px;
+  left: 5px;
+}
 .el-aside{
   position: fixed;
   top: 60px;

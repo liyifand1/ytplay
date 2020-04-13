@@ -2,8 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/home/Home.vue'
 // import Demo from '../views/home/demo.vue'
-const Demo = () =>
-    import ('../views/home/demo.vue')
+
 const Discovery = () =>
     import ('../components/Discovery/Discovery.vue')
 const Detail = () =>

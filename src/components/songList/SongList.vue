@@ -66,10 +66,11 @@ export default {
     return {};
   },
   methods: {
-    ...mapMutations(["playIdChange"]),
+    ...mapMutations(["playIdChange","playSongChange"]),
     play(song) {
       this.playIdChange(song.id);
-      this.$emit("getSongName", song.name);
+      this.playSongChange(song.name)
+      // this.$emit("getSongName", song.name);
     },
     cduration
   },

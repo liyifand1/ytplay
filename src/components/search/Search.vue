@@ -1,6 +1,5 @@
 <template>
   <div>
-      <h3 style="color:red">正在播放: {{songName}}</h3>
     <song-list @getSongName="songName=$event" :songs="songs">
     </song-list>
   </div>

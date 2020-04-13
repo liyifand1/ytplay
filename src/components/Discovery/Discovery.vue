@@ -13,7 +13,6 @@
     </el-carousel>
     <h3 class="my">
       精品推荐 
-      {{songId}}  
     </h3>
 
     <el-row class="recommend">
@@ -24,7 +23,7 @@
         :offset="index > 0 ? 2 : 0"
       >
         <div @click="toSongList(item.id)">
-          <el-card :body-style="{ padding: '0px' }" style="">
+          <el-card :body-style="{ padding: '0px' }">
             <img :src="item.picUrl" class="image" alt="" />
             <!-- <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" class="image"> -->
             <div style="padding: 14px;">
@@ -63,7 +62,7 @@ export default {
     },
     //获取推荐歌单
     async getRecommendList() {
-      const res = await this.$http.get("/personalized?limit=5");
+      const res = await this.$http.get("/personalized?limit=10");
       this.recommendList = res.data.result;
     //   console.log(this.recommendList);
     },
@@ -85,6 +84,7 @@ export default {
 <style scoped>
 .el-card {
   cursor: pointer;
+  height: 305px;
 }
 .el-col {
   margin: 10px;
