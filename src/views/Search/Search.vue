@@ -6,7 +6,8 @@
 </template>
 
 <script>
-import SongList from '../songList/SongList.vue'
+import SongList from "@/components/SongList/SongList";
+
 export default {
     components:{
         SongList
@@ -20,9 +21,7 @@ export default {
     };
   },
   watch: {
-      searchName(){
-        //   console.log("变化");
-          
+      searchName(){  
           this.searchSong()
       }
   },
@@ -32,7 +31,7 @@ export default {
 
       const { data: res } = await this.$http.get("search", {
         params: {
-          keywords: this.searchName
+          keywords: this.searchName 
         }
       });
       this.songs = res.result.songs;

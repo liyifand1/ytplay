@@ -16,7 +16,11 @@
           <el-menu-item index="1-1" @click="$router.push('/discovery').catch(err=>{})">
             发现音乐
             </el-menu-item>
-          <el-menu-item index="1-2">推荐歌单</el-menu-item>
+          <el-menu-item index="1-2">
+            <router-link to="/recommend">
+            推荐歌单
+            </router-link>
+            </el-menu-item>
           <el-menu-item index="1-3">最新音乐</el-menu-item>
           <el-menu-item index="1-4">最新MV
           </el-menu-item>
@@ -146,8 +150,8 @@ export default {
 } */
 audio{
   width: 100%;
-  /* background-color: #fff;
-  color: #fff; */
+
+  outline: none;
 }
 .el-container .el-input{
   position: absolute;

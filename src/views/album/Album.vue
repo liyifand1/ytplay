@@ -29,7 +29,7 @@
 
 <script>
 // import SongList from '@/components/songList/SongList.vue'
-import SongList from '@/components/songList/SongList'
+import SongList from '@/components/SongList/SongList'
 import {getAlbum} from '@/request/request.js'
 import {convertKey} from '@/utils/utils'
 export default {

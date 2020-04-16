@@ -1,17 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/home/Home.vue'
+import Home from '../views/Home/Home.vue'
 
 const Discovery = () =>
-    import ('../components/Discovery/Discovery.vue')
+    import ('../views/Discovery/Discovery.vue')
 const Detail = () =>
-    import ('../components/Detail/Detail.vue')
+    import ('../views/Detail/Detail.vue')
 const Search = () =>
-    import ('../components/search/Search.vue')
+    import ('../views/Search/Search.vue')
 const Artists = () =>
-    import ('@/views/artists/Artists.vue')
+    import ('../views/Artists/Artists.vue')
 const Album = () =>
-    import ('@/views/album/Album.vue')
+    import ('../views/Album/Album.vue')
+const Recommend = () =>
+    import ('../views/Recommend/Recommend.vue')
 Vue.use(VueRouter)
 
 
@@ -42,6 +44,10 @@ const routes = [{
             {
                 path: '/album/:id',
                 component: Album
+            },
+            {
+                path: '/recommend',
+                component: Recommend
             }
         ]
     },

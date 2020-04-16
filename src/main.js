@@ -7,6 +7,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import { mapState } from 'vuex'
 // import './plugins/element'
+// import SongList from './components/SongList/SongList.vue'
 import './assets/css/global.css'
 import { dateFormat, cduration } from './utils/utils'
 Vue.use(ElementUI)

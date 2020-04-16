@@ -17,7 +17,7 @@
 <script>
 import {getArtists} from '@/request/request'
 import {convertKey} from '@/utils/utils'
-import SongList from '@/components/songList/SongList'
+import SongList from '@/components/SongList/SongList'
 export default {
     data() {
         return {

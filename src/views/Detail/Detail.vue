@@ -17,7 +17,7 @@
 <script>
 import { mapMutations, mapActions } from "vuex";
 import { convertKey } from "../../utils/utils";
-import SongList from "../songList/SongList.vue";
+import SongList from "@/components/SongList/SongList";
 import { cduration } from "@/utils/utils";
 import { log } from 'util';
 

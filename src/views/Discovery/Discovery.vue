@@ -6,7 +6,7 @@
       height="200px"
       style="line-height:30px"
     >
-      <el-carousel-item v-for="item in banners" :key="item.encodeId">
+      <el-carousel-item v-for="item in banners" :key="item.imageUrl">
         <!-- <h3 class="medium">{{ item }}</h3> -->
         <img class="banner-img" :src="item.imageUrl" alt="" />
       </el-carousel-item>
