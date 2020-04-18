@@ -67,7 +67,14 @@ export default {
   },
   methods: {
     ...mapMutations(["playIdChange","playSongChange"]),
-    play(song) {
+    async play(song) {
+      let canPlay = await this.$http.get('/check/music',{
+        params:{
+          id:song.id
+        }
+      })
+      console.log(canPlay);
+      
       this.playIdChange(song.id);
       this.playSongChange(song.name)
       this.$emit("getSongName", song.name);

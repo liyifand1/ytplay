@@ -32,7 +32,7 @@
       </el-main>
       <el-footer>
        
-        <audio volume=0.1 :name="songId" :src="'https://music.163.com/song/media/outer/url?id='+songId+'.mp3'" autoplay controls></audio>
+        <audio ref="audioRef" volume=0.1 :name="songId" :src="songUrl" autoplay controls></audio>
       </el-footer>
       <div>
       </div>
@@ -50,6 +50,8 @@ export default {
       songs: [],
       songInfo: {},
       searchName:'',
+      songUrl:"",
+      songName:""
     };
   },
 
@@ -58,6 +60,36 @@ export default {
   },
   computed: {
     ...mapState(['songId'])
+  },
+  watch: {
+    '$store.state.songId':function(){
+   
+
+      // let audioPlay =  this.$refs.audioRef
+      // audioPlay.onerror = function(){
+      //   console.log("出场了");
+        
+      //   this.$message({
+      //     message: '对不起,该歌曲暂时无法播放',
+      //     type: 'error'
+      //   });
+      // }.bind(this)
+      // 'https://music.163.com/song/media/outer/url?id='+songId+'.mp3'
+      this.$http.get(`/song/url?id=${this.songId}`).then(res=>{
+        console.log(res);
+        if (res.data.data[0].url) {
+          this.songUrl = res.data.data[0].url
+          this.songName = res.data.data[0].name
+        }else{
+          this.$message.error("对不起,该歌曲为付费歌曲")
+        }
+        
+      }).catch(err=>{})
+
+  
+      
+      
+    }
   },
     methods: {
       // 播放歌曲
