@@ -12,7 +12,9 @@ import './assets/css/global.css'
 import { dateFormat, cduration } from './utils/utils'
 Vue.use(ElementUI)
 Vue.config.productionTip = false
-axios.defaults.baseURL = 'http://localhost:3000'
+    // axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.baseURL = 'https://autumnfish.cn/'
+
 Vue.prototype.$http = axios
 Vue.filter('newDuration', cduration)
 Vue.filter('dateFormat', dateFormat)

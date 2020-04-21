@@ -13,4 +13,5 @@ const getAlbum = (id) => {
         }
     })
 }
+
 export { getArtists, getAlbum }

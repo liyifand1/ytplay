@@ -14,6 +14,10 @@ const Album = () =>
     import ('../views/Album/Album.vue')
 const Recommend = () =>
     import ('../views/Recommend/Recommend.vue')
+const NewSongs = () =>
+    import ('../views/NewSongs/NewSongs.vue')
+const NewMv = () =>
+    import ('../views/NewMv/NewMv.vue')
 Vue.use(VueRouter)
 
 
@@ -48,6 +52,14 @@ const routes = [{
             {
                 path: '/recommend',
                 component: Recommend
+            },
+            {
+                path: "/newsongs",
+                component: NewSongs
+            },
+            {
+                path: "/newmv",
+                component: NewMv
             }
         ]
     },

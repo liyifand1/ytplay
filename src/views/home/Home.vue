@@ -2,8 +2,9 @@
  <el-container class="home-container">
   <el-header >
     <div class="my-header">     
-      <div class="playing_con">
-              <h3 class="playing_song"> {{$store.state.songName?'正在播放: '+$store.state.songName:''}}</h3>
+      <div class="playing_con" ref="songInfoRef">
+              <h3 v-show="!isPaused" class="playing_song"> {{$store.state.songName?'正在播放: '+$store.state.songName:''}}</h3>
+              <h3 v-show="isPaused" class="paused_song">暂停中</h3>
       </div>
        <el-input @change="search" v-model="searchName" placeholder="搜索歌曲"></el-input>
     <!-- <el-button type="" @click="search">hah</el-button> -->
@@ -21,9 +22,17 @@
             推荐歌单
             </router-link>
             </el-menu-item>
-          <el-menu-item index="1-3">最新音乐</el-menu-item>
-          <el-menu-item index="1-4">最新MV
-          </el-menu-item>
+          <el-menu-item index="1-3">
+            <router-link to="newsongs">
+            最新音乐
+
+            </router-link>
+            </el-menu-item>
+          <!-- <el-menu-item index="1-4">
+            <router-link to="newmv">
+            最新MV
+            </router-link>
+          </el-menu-item> -->
           </el-menu>
     </el-aside>
     <el-container>
@@ -51,12 +60,24 @@ export default {
       songInfo: {},
       searchName:'',
       songUrl:"",
-      songName:""
+      songName:"",
+      isPaused:false
     };
   },
 
   created() {
  
+  },
+  mounted() {
+    let audioPlay =  this.$refs.audioRef
+      audioPlay.onpause = function(){
+        // console.log("出场了");
+        this.isPaused = true
+        
+      }.bind(this)
+      audioPlay.onplay = function(){
+        this.isPaused = false
+      }.bind(this)
   },
   computed: {
     ...mapState(['songId'])
@@ -65,15 +86,7 @@ export default {
     '$store.state.songId':function(){
    
 
-      // let audioPlay =  this.$refs.audioRef
-      // audioPlay.onerror = function(){
-      //   console.log("出场了");
-        
-      //   this.$message({
-      //     message: '对不起,该歌曲暂时无法播放',
-      //     type: 'error'
-      //   });
-      // }.bind(this)
+      
       // 'https://music.163.com/song/media/outer/url?id='+songId+'.mp3'
       this.$http.get(`/song/url?id=${this.songId}`).then(res=>{
         console.log(res);
@@ -139,6 +152,10 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.paused_song{
+  margin-top: 0;
+  margin-left: -40px;
 }
 @keyframes textmove{ 
   0%{

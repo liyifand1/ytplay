@@ -87,3 +87,8 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+ul,
+li {
+    list-style: none;
+}
